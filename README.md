@@ -47,7 +47,11 @@ Fork it: 👶 Child inherits 50% parent DNA + 50% random + daily mutations
 - **Rarity System**: Some traits are rarer than others
 - **Generation Tracking**: Know your monkey's lineage
 
-### 🤖 AI Evolution
+### ✨ Free AI Evolution
+ForkMonkey now uses **GitHub Models** (gpt-4o) by default for **free** AI-powered evolution! No API key required.
+
+(Optional: You can still use Claude by setting `ANTHROPIC_API_KEY` and `AI_PROVIDER=claude`)
+
 - **Daily Mutations**: Claude AI subtly evolves your monkey
 - **Smart Changes**: AI understands aesthetics and makes coherent changes
 - **Personality Development**: Monkeys develop unique personalities over time

@@ -2,6 +2,7 @@
 anthropic>=0.18.0
 requests>=2.31.0
 PyGithub>=2.1.1
+openai>=1.0.0
 
 # Data handling
 pydantic>=2.5.0

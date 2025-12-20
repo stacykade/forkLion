@@ -1,33 +1,109 @@
 """
 ForkMonkey Evolution Engine
 
-AI-powered evolution using Claude to make intelligent mutations.
+AI-powered evolution using LLMs to make intelligent mutations.
+Supports multiple providers:
+- GitHub Models (Default)
+- Claude (Anthropic)
 """
 
 import os
 import json
-from typing import Optional
-from anthropic import Anthropic
+import abc
+from typing import Optional, Dict, Any, List
 from src.genetics import MonkeyDNA, GeneticsEngine, TraitCategory
+
+
+class AIProvider(abc.ABC):
+    """Abstract base class for AI providers"""
+    
+    @abc.abstractmethod
+    def generate_response(self, prompt: str, max_tokens: int = 1024) -> str:
+        """Generate text response from the model"""
+        pass
+    
+    @abc.abstractmethod
+    def name(self) -> str:
+        """Provider name"""
+        pass
+
+
+class ClaudeProvider(AIProvider):
+    """Anthropic Claude provider"""
+    
+    def __init__(self, api_key: str):
+        from anthropic import Anthropic
+        self.client = Anthropic(api_key=api_key)
+        self.model = "claude-3-5-sonnet-20241022"
+    
+    def generate_response(self, prompt: str, max_tokens: int = 1024) -> str:
+        response = self.client.messages.create(
+            model=self.model,
+            max_tokens=max_tokens,
+            messages=[{"role": "user", "content": prompt}]
+        )
+        return response.content[0].text
+    
+    def name(self) -> str:
+        return "Claude"
+
+
+class GitHubProvider(AIProvider):
+    """GitHub Models provider (via OpenAI-compatible endpoint)"""
+    
+    def __init__(self, token: str, model: str = "gpt-4o"):
+        from openai import OpenAI
+        self.client = OpenAI(
+            base_url="https://models.inference.ai.azure.com",
+            api_key=token,
+        )
+        self.model = model
+        
+    def generate_response(self, prompt: str, max_tokens: int = 1024) -> str:
+        response = self.client.chat.completions.create(
+            messages=[{"role": "user", "content": prompt}],
+            model=self.model,
+            max_tokens=max_tokens,
+        )
+        return response.choices[0].message.content
+
+    def name(self) -> str:
+        return f"GitHub Models ({self.model})"
 
 
 class EvolutionAgent:
     """AI agent that evolves monkeys intelligently"""
     
-    def __init__(self, api_key: Optional[str] = None):
-        self.api_key = api_key or os.getenv("ANTHROPIC_API_KEY")
-        if not self.api_key:
-            raise ValueError("ANTHROPIC_API_KEY not found")
-        self.client = Anthropic(api_key=self.api_key)
+    def __init__(self, provider_type: str = "github", api_key: Optional[str] = None):
+        self.provider = self._setup_provider(provider_type, api_key)
+    
+    def _setup_provider(self, provider_type: str, api_key: Optional[str]) -> AIProvider:
+        """Initialize the requested AI provider"""
+        
+        if provider_type == "claude":
+            key = api_key or os.getenv("ANTHROPIC_API_KEY")
+            if not key:
+                raise ValueError("ANTHROPIC_API_KEY not found")
+            return ClaudeProvider(key)
+            
+        elif provider_type == "github":
+            # Use GITHUB_TOKEN or passed key
+            token = api_key or os.getenv("GITHUB_TOKEN")
+            if not token:
+                raise ValueError("GITHUB_TOKEN not found (required for GitHub Models)")
+            
+            # Allow model selection via env env
+            model = os.getenv("GITHUB_MODEL", "gpt-4o")
+            return GitHubProvider(token, model)
+            
+        else:
+            raise ValueError(f"Unknown provider type: {provider_type}")
     
     def evolve_with_ai(self, dna: MonkeyDNA, days_passed: int = 1) -> MonkeyDNA:
         """
         Use AI to intelligently evolve the monkey
-        
-        Args:
-            dna: Current monkey DNA
-            days_passed: Number of days since last evolution
         """
+        print(f"🧠 Evolving with {self.provider.name()}...")
         
         # Get current traits as readable format
         current_traits = {
@@ -38,22 +114,15 @@ class EvolutionAgent:
             for cat, trait in dna.traits.items()
         }
         
-        # Create prompt for Claude
+        # Create prompt
         prompt = self._create_evolution_prompt(current_traits, days_passed, dna.generation)
         
         try:
-            # Call Claude
-            response = self.client.messages.create(
-                model="claude-3-5-sonnet-20241022",
-                max_tokens=1024,
-                messages=[{
-                    "role": "user",
-                    "content": prompt
-                }]
-            )
+            # Call AI
+            response_text = self.provider.generate_response(prompt)
             
             # Parse response
-            evolution_decision = self._parse_ai_response(response.content[0].text)
+            evolution_decision = self._parse_ai_response(response_text)
             
             # Apply AI-suggested changes
             evolved_dna = self._apply_evolution(dna, evolution_decision)
@@ -63,11 +132,10 @@ class EvolutionAgent:
         except Exception as e:
             print(f"⚠️  AI evolution failed: {e}")
             print("   Falling back to random evolution...")
-            # Fallback to random evolution
             return GeneticsEngine.evolve(dna, evolution_strength=0.1)
     
     def _create_evolution_prompt(self, traits: dict, days: int, generation: int) -> str:
-        """Create prompt for Claude"""
+        """Create prompt for AI"""
         return f"""You are an AI evolution agent for ForkMonkey - a digital pet that lives on GitHub.
 
 Your task is to evolve this monkey's appearance in a subtle, aesthetically pleasing way.
@@ -96,7 +164,7 @@ Rarity levels (from common to legendary):
 - rare (10% chance): Unique traits
 - legendary (5% chance): Ultra-rare traits
 
-Respond with a JSON object indicating which traits to change:
+Respond with a JSON object ONLY (no markdown formatting) indicating which traits to change:
 {{
   "changes": [
     {{
@@ -112,15 +180,22 @@ Respond with a JSON object indicating which traits to change:
 Keep changes minimal (0-2 traits). Consider the monkey's current aesthetic."""
     
     def _parse_ai_response(self, response_text: str) -> dict:
-        """Parse Claude's response"""
+        """Parse AI response"""
         try:
-            # Extract JSON from response
-            start = response_text.find('{')
-            end = response_text.rfind('}') + 1
-            json_str = response_text[start:end]
-            return json.loads(json_str)
+            # Clean up markdown code blocks if present
+            clean_text = response_text.replace("```json", "").replace("```", "").strip()
+            
+            # Extract JSON
+            start = clean_text.find('{')
+            end = clean_text.rfind('}') + 1
+            if start != -1 and end != -1:
+                json_str = clean_text[start:end]
+                return json.loads(json_str)
+            else:
+                raise ValueError("No JSON object found")
         except Exception as e:
             print(f"⚠️  Failed to parse AI response: {e}")
+            print(f"Raw response: {response_text[:100]}...")
             return {"changes": [], "evolution_story": "No changes today."}
     
     def _apply_evolution(self, dna: MonkeyDNA, decision: dict) -> MonkeyDNA:
@@ -182,12 +257,7 @@ Changes that occurred:
 Make it fun and engaging, like a Tamagotchi update message."""
         
         try:
-            response = self.client.messages.create(
-                model="claude-3-5-sonnet-20241022",
-                max_tokens=256,
-                messages=[{"role": "user", "content": prompt}]
-            )
-            return response.content[0].text.strip()
+            return self.provider.generate_response(prompt, max_tokens=256).strip()
         except:
             return f"Your monkey evolved! Changes: {', '.join(changes)}"
 
@@ -198,47 +268,21 @@ def main():
     
     print("🧬 ForkMonkey Evolution Agent Test\n")
     
-    # Check for API key
-    if not os.getenv("ANTHROPIC_API_KEY"):
-        print("⚠️  ANTHROPIC_API_KEY not set. Set it in .env file.")
-        print("   Testing with random evolution instead...\n")
-        
-        dna = GeneticsEngine.generate_random_dna()
-        evolved = GeneticsEngine.evolve(dna, evolution_strength=0.2)
-        
-        print("Original traits:")
-        for cat, trait in dna.traits.items():
-            print(f"  {cat.value}: {trait.value}")
-        
-        print("\nEvolved traits:")
-        for cat, trait in evolved.traits.items():
-            if trait.value != dna.traits[cat].value:
-                print(f"  {cat.value}: {trait.value} (CHANGED)")
-            else:
-                print(f"  {cat.value}: {trait.value}")
-        
-        return
+    # Determine provider
+    provider = os.getenv("AI_PROVIDER", "github")
+    print(f"Using provider: {provider}")
     
-    # Test with AI
-    agent = EvolutionAgent()
+    try:
+        agent = EvolutionAgent(provider_type=provider)
+    except Exception as e:
+        print(f"⚠️  Failed to initialize agent: {e}")
+        return
     
     print("1. Generating random monkey...")
     dna = GeneticsEngine.generate_random_dna()
-    print("   Current traits:")
-    for cat, trait in dna.traits.items():
-        print(f"     {cat.value}: {trait.value} ({trait.rarity.value})")
     
     print("\n2. Evolving with AI...")
     evolved = agent.evolve_with_ai(dna, days_passed=1)
-    
-    print("   Evolved traits:")
-    for cat, trait in evolved.traits.items():
-        if trait.value != dna.traits[cat].value:
-            print(f"     {cat.value}: {trait.value} ({trait.rarity.value}) ⭐ CHANGED")
-        else:
-            print(f"     {cat.value}: {trait.value} ({trait.rarity.value})")
-    
-    print(f"\n   Mutations: {evolved.mutation_count}")
     
     print("\n3. Generating evolution story...")
     story = agent.generate_evolution_story(dna, evolved)

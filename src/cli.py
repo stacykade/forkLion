@@ -116,14 +116,21 @@ def evolve(ai, strength):
     console.print(f"Mutations so far: {dna.mutation_count}")
     
     # Evolve
-    if ai and os.getenv("ANTHROPIC_API_KEY"):
-        console.print("\n[cyan]🤖 Using AI-powered evolution...[/cyan]")
-        agent = EvolutionAgent()
-        evolved_dna = agent.evolve_with_ai(dna, days_passed=1)
-        story = agent.generate_evolution_story(dna, evolved_dna)
+    # Evolve
+    if ai:
+        provider = os.getenv("AI_PROVIDER", "github")
+        console.print(f"\n[cyan]🤖 Using AI-powered evolution ({provider})...[/cyan]")
+        
+        try:
+            agent = EvolutionAgent(provider_type=provider)
+            evolved_dna = agent.evolve_with_ai(dna, days_passed=1)
+            story = agent.generate_evolution_story(dna, evolved_dna)
+        except Exception as e:
+            console.print(f"[yellow]⚠️  AI evolution failed: {e}[/yellow]")
+            console.print("[cyan]🎲 Falling back to random evolution...[/cyan]")
+            evolved_dna = GeneticsEngine.evolve(dna, evolution_strength=strength)
+            story = "Your monkey evolved randomly!"
     else:
-        if ai:
-            console.print("\n[yellow]⚠️  ANTHROPIC_API_KEY not set, using random evolution[/yellow]")
         console.print(f"\n[cyan]🎲 Using random evolution (strength: {strength})...[/cyan]")
         evolved_dna = GeneticsEngine.evolve(dna, evolution_strength=strength)
         story = "Your monkey evolved randomly!"
