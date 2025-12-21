@@ -511,6 +511,22 @@
         "special": "shadow"
       },
       "story": "\ud83c\udf89 Your lion was born!"
+    },
+    {
+      "timestamp": "2025-12-21T01:49:38.309193",
+      "dna_hash": "8a0ea0ccdbde732f",
+      "generation": 1,
+      "mutation_count": 0,
+      "rarity_score": 30.0,
+      "traits": {
+        "body_color": "tan",
+        "face_expression": "wise",
+        "accessory": "sunglasses",
+        "pattern": "cosmic_dust",
+        "background": "blue_sky",
+        "special": "glow"
+      },
+      "story": "\ud83c\udf89 Your lion was born!"
     }
   ]
 }
