@@ -527,6 +527,22 @@
         "special": "glow"
       },
       "story": "\ud83c\udf89 Your lion was born!"
+    },
+    {
+      "timestamp": "2025-12-22T02:07:34.642344",
+      "dna_hash": "25862505cf97a991",
+      "generation": 1,
+      "mutation_count": 1,
+      "rarity_score": 30.0,
+      "traits": {
+        "body_color": "tan",
+        "face_expression": "wise",
+        "accessory": "sunglasses",
+        "pattern": "cosmic_dust",
+        "background": "sunset",
+        "special": "glow"
+      },
+      "story": "Your lion evolved! Changes: background: blue_sky \u2192 sunset"
     }
   ]
 }
