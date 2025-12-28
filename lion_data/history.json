@@ -623,6 +623,22 @@
         "special": "sparkles"
       },
       "story": "Your lion evolved! Changes: face_expression: excited \u2192 neutral, accessory: headphones \u2192 sunglasses, pattern: cosmic_dust \u2192 void"
+    },
+    {
+      "timestamp": "2025-12-28T02:20:12.939076",
+      "dna_hash": "913c0ff25164f1d2",
+      "generation": 1,
+      "mutation_count": 9,
+      "rarity_score": 28.333333333333332,
+      "traits": {
+        "body_color": "brown",
+        "face_expression": "neutral",
+        "accessory": "crown",
+        "pattern": "void",
+        "background": "sunset",
+        "special": "sparkles"
+      },
+      "story": "Your lion evolved! Changes: accessory: sunglasses \u2192 crown"
     }
   ]
 }
