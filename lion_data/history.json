@@ -1103,6 +1103,22 @@
         "special": "sparkles"
       },
       "story": "Your lion evolved! Changes: body_color: gray \u2192 tan"
+    },
+    {
+      "timestamp": "2026-01-27T02:19:48.213445",
+      "dna_hash": "58fa1c0df2ad3445",
+      "generation": 1,
+      "mutation_count": 21,
+      "rarity_score": 30.0,
+      "traits": {
+        "body_color": "tan",
+        "face_expression": "happy",
+        "accessory": "crown",
+        "pattern": "aurora",
+        "background": "mountains",
+        "special": "sparkles"
+      },
+      "story": "Your lion rested today. No visible changes."
     }
   ]
 }
