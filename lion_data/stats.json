@@ -1,9 +1,9 @@
 {
-  "dna_hash": "58fa1c0df2ad3445",
+  "dna_hash": "e444223a51e932c1",
   "generation": 1,
   "age_days": 0,
-  "mutation_count": 21,
-  "rarity_score": 30.0,
+  "mutation_count": 22,
+  "rarity_score": 35.0,
   "parent_id": null,
   "traits": {
     "body_color": {
@@ -27,9 +27,9 @@
       "rarity": "uncommon"
     },
     "special": {
-      "value": "sparkles",
-      "rarity": "uncommon"
+      "value": "particles",
+      "rarity": "rare"
     }
   },
-  "last_updated": "2026-01-27T02:19:48.212963"
+  "last_updated": "2026-01-28T02:09:28.389365"
 }
