@@ -1327,6 +1327,22 @@
         "special": "shadow"
       },
       "story": "Your lion evolved! Changes: special: glow \u2192 shadow"
+    },
+    {
+      "timestamp": "2026-02-09T07:42:39.888418",
+      "dna_hash": "ef84e44f54f79c0d",
+      "generation": 1,
+      "mutation_count": 0,
+      "rarity_score": 13.333333333333334,
+      "traits": {
+        "body_color": "gray",
+        "face_expression": "mischievous",
+        "accessory": "bow",
+        "pattern": "spots",
+        "background": "white",
+        "special": "glow"
+      },
+      "story": "\ud83c\udf89 Your lion was born!"
     }
   ]
 }
