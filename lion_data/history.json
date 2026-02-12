@@ -1375,6 +1375,22 @@
         "special": "glow"
       },
       "story": "Your lion evolved! Changes: background: white \u2192 city"
+    },
+    {
+      "timestamp": "2026-02-12T02:43:56.293840",
+      "dna_hash": "9f2282a2b889914d",
+      "generation": 1,
+      "mutation_count": 2,
+      "rarity_score": 15.0,
+      "traits": {
+        "body_color": "gray",
+        "face_expression": "mischievous",
+        "accessory": "bow",
+        "pattern": "spots",
+        "background": "city",
+        "special": "glow"
+      },
+      "story": "Your lion rested today. No visible changes."
     }
   ]
 }
