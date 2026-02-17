@@ -1455,6 +1455,102 @@
         "special": "sparkles"
       },
       "story": "Your lion evolved! Changes: special: glow \u2192 sparkles"
+    },
+    {
+      "timestamp": "2026-02-17T07:07:21.934415",
+      "dna_hash": "5dcf2e32edaf10f8",
+      "generation": 1,
+      "mutation_count": 4,
+      "rarity_score": 13.333333333333334,
+      "traits": {
+        "body_color": "gray",
+        "face_expression": "mischievous",
+        "accessory": "bow",
+        "pattern": "spots",
+        "background": "city",
+        "special": "none"
+      },
+      "story": "Your lion evolved randomly!"
+    },
+    {
+      "timestamp": "2026-02-17T07:07:29.014946",
+      "dna_hash": "5dcf2e32edaf10f8",
+      "generation": 1,
+      "mutation_count": 5,
+      "rarity_score": 13.333333333333334,
+      "traits": {
+        "body_color": "gray",
+        "face_expression": "mischievous",
+        "accessory": "bow",
+        "pattern": "spots",
+        "background": "city",
+        "special": "none"
+      },
+      "story": "Your lion evolved randomly!"
+    },
+    {
+      "timestamp": "2026-02-17T07:07:35.913488",
+      "dna_hash": "5dcf2e32edaf10f8",
+      "generation": 1,
+      "mutation_count": 6,
+      "rarity_score": 13.333333333333334,
+      "traits": {
+        "body_color": "gray",
+        "face_expression": "mischievous",
+        "accessory": "bow",
+        "pattern": "spots",
+        "background": "city",
+        "special": "none"
+      },
+      "story": "Your lion evolved randomly!"
+    },
+    {
+      "timestamp": "2026-02-17T07:07:38.787368",
+      "dna_hash": "971995b8d7f561f3",
+      "generation": 1,
+      "mutation_count": 8,
+      "rarity_score": 13.333333333333334,
+      "traits": {
+        "body_color": "gray",
+        "face_expression": "cool",
+        "accessory": "bow",
+        "pattern": "spots",
+        "background": "city",
+        "special": "none"
+      },
+      "story": "Your lion evolved randomly!"
+    },
+    {
+      "timestamp": "2026-02-17T07:07:53.471816",
+      "dna_hash": "971995b8d7f561f3",
+      "generation": 1,
+      "mutation_count": 9,
+      "rarity_score": 13.333333333333334,
+      "traits": {
+        "body_color": "gray",
+        "face_expression": "cool",
+        "accessory": "bow",
+        "pattern": "spots",
+        "background": "city",
+        "special": "none"
+      },
+      "story": "Your lion rested today. No visible changes."
+    },
+    {
+      "timestamp": "2026-02-17T07:08:10.298324",
+      "dna_hash": "b283c50dc45aafce",
+      "generation": 1,
+      "mutation_count": 10,
+      "rarity_score": 13.333333333333334,
+      "traits": {
+        "body_color": "tan",
+        "face_expression": "cool",
+        "accessory": "bow",
+        "pattern": "spots",
+        "background": "city",
+        "special": "none"
+      },
+      "story": "\ud83e\udd81\u2728 **Evolution Alert!** \u2728\ud83e\udd81\n\nYour majestic lion has discovered the ancient art of sunbathing and transformed from a stormy gray coat to a gorgeous golden tan! Now strutting around the savanna like a furry fashion model, this fabulous feline is ready to dazzle all the other jungle creatures with their sun-kissed glow!\n\n*Your lion feels more confident and radiant than ever!* \ud83c\udf1f"
     }
   ]
 }
