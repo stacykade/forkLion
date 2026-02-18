@@ -1567,6 +1567,22 @@
         "special": "none"
       },
       "story": "\ud83e\udd81\u2728 **EVOLUTION ALERT!** \u2728\ud83e\udd81\n\nYour magnificent lion has discovered a magical sunbeam and spent all afternoon basking in its warm glow! The golden rays have transformed their humble tan coat into a brilliant, shimmering golden mane that sparkles like treasure in the savanna sun. Now they strut around with extra confidence, practically glowing with their newfound royal radiance! \n\n\ud83d\udc51 *Your lion feels absolutely FABULOUS!* \ud83d\udc51"
+    },
+    {
+      "timestamp": "2026-02-18T21:00:16.578998",
+      "dna_hash": "ea25f700906b90d9",
+      "generation": 1,
+      "mutation_count": 12,
+      "rarity_score": 16.666666666666664,
+      "traits": {
+        "body_color": "golden",
+        "face_expression": "cool",
+        "accessory": "bow",
+        "pattern": "spots",
+        "background": "city",
+        "special": "sparkles"
+      },
+      "story": "\ud83e\udd81\u2728 **EVOLUTION COMPLETE!** \u2728\ud83e\udd81\n\nYour majestic lion has discovered a hidden rainbow waterfall deep in the savanna! After taking a magical dip, tiny sparkles now dance across their golden mane like captured starlight. The other animals gather around in wonder as your sparkling lion becomes the most dazzling ruler of the pride! \n\n\ud83c\udf1f *New ability unlocked: Sparkle Roar!* \ud83c\udf1f"
     }
   ]
 }
