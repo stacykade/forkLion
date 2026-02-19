@@ -1583,6 +1583,38 @@
         "special": "sparkles"
       },
       "story": "\ud83e\udd81\u2728 **EVOLUTION COMPLETE!** \u2728\ud83e\udd81\n\nYour majestic lion has discovered a hidden rainbow waterfall deep in the savanna! After taking a magical dip, tiny sparkles now dance across their golden mane like captured starlight. The other animals gather around in wonder as your sparkling lion becomes the most dazzling ruler of the pride! \n\n\ud83c\udf1f *New ability unlocked: Sparkle Roar!* \ud83c\udf1f"
+    },
+    {
+      "timestamp": "2026-02-19T21:00:09.702502",
+      "dna_hash": "ea25f700906b90d9",
+      "generation": 1,
+      "mutation_count": 12,
+      "rarity_score": 16.666666666666664,
+      "traits": {
+        "body_color": "golden",
+        "face_expression": "cool",
+        "accessory": "bow",
+        "pattern": "spots",
+        "background": "city",
+        "special": "sparkles"
+      },
+      "story": "Your lion rested today. No visible changes."
+    },
+    {
+      "timestamp": "2026-02-19T21:00:26.295794",
+      "dna_hash": "31bc425cabbed272",
+      "generation": 1,
+      "mutation_count": 13,
+      "rarity_score": 18.333333333333332,
+      "traits": {
+        "body_color": "golden",
+        "face_expression": "cool",
+        "accessory": "sunglasses",
+        "pattern": "spots",
+        "background": "city",
+        "special": "sparkles"
+      },
+      "story": "\ud83e\udd81\u2728 **EVOLUTION ALERT!** \u2728\ud83e\udd81\n\nYour majestic lion has discovered the power of being effortlessly cool! After trading in their adorable bow for sleek sunglasses, they now strut through the savanna like a furry rockstar, making all the other animals whisper \"Who's that mysterious mane?\" \n\n*Your lion is feeling 200% more fabulous!* \ud83d\ude0e"
     }
   ]
 }
