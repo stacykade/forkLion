@@ -1839,6 +1839,22 @@
         "special": "sparkles"
       },
       "story": "Your lion rested today. No visible changes."
+    },
+    {
+      "timestamp": "2026-03-07T21:00:08.112375",
+      "dna_hash": "e4e87456ef375486",
+      "generation": 1,
+      "mutation_count": 23,
+      "rarity_score": 16.666666666666664,
+      "traits": {
+        "body_color": "beige",
+        "face_expression": "cool",
+        "accessory": "sunglasses",
+        "pattern": "spots",
+        "background": "beach",
+        "special": "sparkles"
+      },
+      "story": "Your lion evolved! Changes: background: city \u2192 beach"
     }
   ]
 }
