@@ -1919,6 +1919,38 @@
         "special": "shadow"
       },
       "story": "Your lion rested today. No visible changes."
+    },
+    {
+      "timestamp": "2026-03-12T21:00:06.656452",
+      "dna_hash": "dec518403fe92fde",
+      "generation": 1,
+      "mutation_count": 30,
+      "rarity_score": 16.666666666666664,
+      "traits": {
+        "body_color": "beige",
+        "face_expression": "wise",
+        "accessory": "headphones",
+        "pattern": "solid",
+        "background": "beach",
+        "special": "shadow"
+      },
+      "story": "Your lion rested today. No visible changes."
+    },
+    {
+      "timestamp": "2026-03-12T21:00:22.088702",
+      "dna_hash": "5546672257e0648c",
+      "generation": 1,
+      "mutation_count": 31,
+      "rarity_score": 18.333333333333332,
+      "traits": {
+        "body_color": "beige",
+        "face_expression": "wise",
+        "accessory": "headphones",
+        "pattern": "gradient",
+        "background": "beach",
+        "special": "shadow"
+      },
+      "story": "\ud83e\udd81\u2728 **EVOLUTION ALERT!** \u2728\ud83e\udd81\n\nYour mighty lion has discovered the ancient Rainbow Springs and taken a magical dip! After emerging from the shimmering waters, his once solid golden coat now flows like a sunset gradient from deep amber to pale cream. He roars with pride at his fabulous new look and struts around showing off his gradient mane to all the savanna creatures! \n\n\ud83c\udf08 *Your lion feels extra majestic!* \ud83c\udf08"
     }
   ]
 }
