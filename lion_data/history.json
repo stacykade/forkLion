@@ -1999,6 +1999,38 @@
         "special": "shadow"
       },
       "story": "Your lion evolved! Changes: body_color: beige \u2192 tan"
+    },
+    {
+      "timestamp": "2026-03-16T21:00:07.188917",
+      "dna_hash": "137695beaa4fd279",
+      "generation": 1,
+      "mutation_count": 34,
+      "rarity_score": 18.333333333333332,
+      "traits": {
+        "body_color": "tan",
+        "face_expression": "wise",
+        "accessory": "headphones",
+        "pattern": "stars",
+        "background": "beach",
+        "special": "shadow"
+      },
+      "story": "Your lion rested today. No visible changes."
+    },
+    {
+      "timestamp": "2026-03-16T21:00:24.888128",
+      "dna_hash": "80ee572472cccd9f",
+      "generation": 1,
+      "mutation_count": 35,
+      "rarity_score": 20.0,
+      "traits": {
+        "body_color": "golden",
+        "face_expression": "wise",
+        "accessory": "headphones",
+        "pattern": "stars",
+        "background": "beach",
+        "special": "shadow"
+      },
+      "story": "\ud83e\udd81\u2728 **EVOLUTION ALERT!** \u2728\ud83e\udd81\n\nYour brave little lion has been basking in so much sunshine and spreading so much joy that their tan fur has transformed into a magnificent golden coat! They now shimmer like a tiny emperor of the savanna, proudly strutting around with their new royal glow. What a majestic transformation! \ud83d\udc51"
     }
   ]
 }
