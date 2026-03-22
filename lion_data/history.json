@@ -2159,6 +2159,22 @@
         "special": "shadow"
       },
       "story": "Your lion evolved! Changes: body_color: golden \u2192 silver, accessory: headphones \u2192 wizard_hat"
+    },
+    {
+      "timestamp": "2026-03-22T21:00:30.540598",
+      "dna_hash": "48a8311400099db3",
+      "generation": 1,
+      "mutation_count": 39,
+      "rarity_score": 30.0,
+      "traits": {
+        "body_color": "silver",
+        "face_expression": "enlightened",
+        "accessory": "wizard_hat",
+        "pattern": "hearts",
+        "background": "beach",
+        "special": "shadow"
+      },
+      "story": "Your lion rested today. No visible changes."
     }
   ]
 }
