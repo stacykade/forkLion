@@ -2207,6 +2207,22 @@
         "special": "shadow"
       },
       "story": "Your lion evolved! Changes: accessory: wizard_hat \u2192 sunglasses, background: beach \u2192 mountains"
+    },
+    {
+      "timestamp": "2026-03-25T21:00:08.874246",
+      "dna_hash": "158608e6e377de7c",
+      "generation": 1,
+      "mutation_count": 41,
+      "rarity_score": 25.0,
+      "traits": {
+        "body_color": "silver",
+        "face_expression": "enlightened",
+        "accessory": "sunglasses",
+        "pattern": "hearts",
+        "background": "mountains",
+        "special": "shadow"
+      },
+      "story": "Your lion rested today. No visible changes."
     }
   ]
 }
